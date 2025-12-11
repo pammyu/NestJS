@@ -18,6 +18,12 @@ export class PostagemController {
         return this.postagemService.findById(id);
     }
 
+    @Get('/titulo/:titulo')
+    @HttpCode(HttpStatus.OK)
+    findAllByTitulo(@Param('titulo') titulo: string): Promise<Postagem[]> {
+        return this.postagemService.findAllByTitulo(titulo);
+    }
+
     @Post()
     @HttpCode(HttpStatus.CREATED)
     create(@Body() postagem: Postagem): Promise<Postagem> {
@@ -26,21 +32,14 @@ export class PostagemController {
 
     @Put()
     @HttpCode(HttpStatus.OK)
-    uptade(@Body() postagem: Postagem): Promise<Postagem> {
-        return this.postagemService.uptade(postagem);
+    update(@Body() postagem: Postagem): Promise<Postagem> {
+        return this.postagemService.update(postagem);
     }
 
     @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)
     delete(@Param('id', ParseIntPipe) id: number) {
         return this.postagemService.delete(id);
-    }
-
-
-    @Get('/titulo/:titulo')
-    @HttpCode(HttpStatus.OK)
-    findAllByTitulo(@Param('titulo') titulo: string): Promise<Postagem[]> {
-        return this.postagemService.findAllByTitulo(titulo);
     }
     
 }
