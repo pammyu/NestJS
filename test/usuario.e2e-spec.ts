@@ -40,7 +40,7 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
       .send({
         nome: 'Pâmela dos Reis',
         usuario: 'pammreiss@gmail.com',
-        senha: 'Pam123',
+        senha: 'Pamela123',
         foto: 'https://i.imgur.com/zEM4Z3S.jpeg',
       })
       .expect(201);
@@ -72,7 +72,7 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
       .post('/usuarios/logar')
       .send({
         usuario: 'pammreiss@gmail.com',
-        senha: 'Pam123',
+        senha: 'Pamela123',
       })
       .expect(200);
  
@@ -104,7 +104,7 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
         id: usuarioId,
         nome: 'Pâmela dos Reis Atualizada',
         usuario: 'pammreiss-atualizada@gmail.com',
-        senha: 'Pam456',
+        senha: 'Pamela456',
         foto: 'https://i.imgur.com/zEM4Z3S.jpeg',
       })
       .expect(200)
