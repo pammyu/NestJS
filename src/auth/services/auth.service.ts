@@ -47,7 +47,7 @@ export class AuthService {
       nome: buscaUsuario?.nome,
       usuario: buscaUsuario?.usuario,
       foto: buscaUsuario?.foto,
-      token: `Bearer ${this.jwtService.sign(payload)}`,
+      token: `${this.jwtService.sign(payload)}`,
     };
   }
 }
