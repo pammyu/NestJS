@@ -10,11 +10,11 @@ import { ProdService } from './data/services/prod.service';
 
 @Module({
   imports: [
-      ConfigModule.forRoot(),
-      TypeOrmModule.forRootAsync({
-        useClass: ProdService,
-        imports: [ConfigModule],
-  }),
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRootAsync({
+      useClass: ProdService,
+      imports: [ConfigModule],
+    }),
     PostagemModule,
     TemaModule,
     AuthModule,
