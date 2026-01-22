@@ -6,19 +6,17 @@ import { UsuarioSemSenha } from '../interfaces/usuario-sem-senha.interface';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-  private _usernameField: string;
-  private _passwordField: string;
-
   constructor(private readonly authService: AuthService) {
-    super();
-    this._usernameField = 'usuario';
-    this._passwordField = 'senha';
+    super({
+      usernameField: 'usuario',
+      passwordField: 'senha',
+    });
   }
 
   async validate(
     usuario: string,
     senha: string,
-  ): Promise<UsuarioSemSenha | null> {
+  ): Promise<UsuarioSemSenha> {
     const validaUsuario = await this.authService.validateUser(usuario, senha);
 
     if (!validaUsuario)
@@ -27,3 +25,4 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     return validaUsuario;
   }
 }
+
