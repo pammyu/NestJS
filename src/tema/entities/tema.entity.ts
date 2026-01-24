@@ -13,6 +13,12 @@ export class Tema {
 
     @IsNotEmpty()
     @Column({length: 255, nullable: false})
+    @ApiProperty()
+    titulo: string
+
+
+    @IsNotEmpty()
+    @Column({length: 255, nullable: false})
     @ApiProperty() 
     descricao: string
 
